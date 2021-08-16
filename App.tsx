@@ -1,5 +1,4 @@
 import * as React from 'react'
-import { Platform, StyleSheet, Text, View } from 'react-native';
 import AppControlFlow from './src/AppControlFlow'
 
 
