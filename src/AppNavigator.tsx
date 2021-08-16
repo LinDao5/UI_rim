@@ -9,7 +9,7 @@ import {
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { createStackNavigator } from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import {HomeScene, DrawerContent} from ".";
+import {HomeScene, DrawerContent, HotelHomeScreen} from ".";
 
 const Drawer = createDrawerNavigator();
 const Stack = createStackNavigator();
@@ -53,6 +53,43 @@ export default () => {
                     options={{ headerShown: false }}
                 />
 
+                <Stack.Screen
+                    name="Hotel"
+                    component={HotelHomeScreen}
+                    options={{
+                        headerShown: true,
+                        headerTitle:"Explore",
+                        headerTitleAlign:"center",
+                        headerTitleStyle:{fontSize: 22, fontFamily:"WorkSans-SemiBold"},
+                        headerLeft:(props) => (
+                          <Pressable
+                              {...props}
+                              style={ {padding: 8, marginLeft:8}}
+                              android_ripple={{color:"grey", radius:20, borderless: true}}    // todo how to work back
+                          >
+                              <Icon name="arrow-back" size={25} color="black" />
+                          </Pressable>
+                        ),
+                        headerRight: () => {
+                            return(
+                              <View style={{flexDirection: "row"}} >
+                                  <Icon
+                                      name="favorite-border"
+                                      size={25}
+                                      color="black"
+                                      style={{paddingHorizontal: 8}}
+                                  />
+                                  <Icon
+                                      name="location-pin"
+                                      style={{paddingHorizontal: 8}}
+                                      size={25}
+                                      color="black"
+                                  />
+                              </View>
+                            );
+                        }
+                    }}
+                />
             </Stack.Navigator>
         </>
     );
